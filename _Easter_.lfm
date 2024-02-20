@@ -1,0 +1,207 @@
+object fMain: TfMain
+  Left = 267
+  Height = 452
+  Top = 117
+  Width = 632
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Easter'
+  ClientHeight = 452
+  ClientWidth = 632
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Menu = mmMain
+  OnCreate = FormCreate
+  OnShow = seYearStartChange
+  Position = poScreenCenter
+  LCLVersion = '3.0.0.3'
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 129
+    Top = 8
+    Width = 145
+    Caption = 'Commands'
+    ClientHeight = 111
+    ClientWidth = 141
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 16
+      Height = 13
+      Top = 8
+      Width = 45
+      Caption = 'Start year'
+    end
+    object Label2: TLabel
+      Left = 16
+      Height = 13
+      Top = 56
+      Width = 45
+      Caption = 'Stop year'
+    end
+    object seYearStart: TSpinEdit
+      Left = 16
+      Height = 21
+      Top = 24
+      Width = 113
+      OnChange = seYearStartChange
+      TabOrder = 0
+      Value = 2000
+    end
+    object seYearStop: TSpinEdit
+      Left = 16
+      Height = 21
+      Top = 72
+      Width = 113
+      OnChange = seYearStartChange
+      TabOrder = 1
+      Value = 2010
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 166
+    Height = 433
+    Top = 8
+    Width = 457
+    Caption = 'Day of Easter'
+    ClientHeight = 415
+    ClientWidth = 453
+    TabOrder = 1
+    object lbResult: TListBox
+      Left = 16
+      Height = 393
+      Top = 8
+      Width = 425
+      ItemHeight = 0
+      TabOrder = 0
+    end
+  end
+  object ListBox2: TListBox
+    Left = 216
+    Height = 33
+    Top = 160
+    Width = 185
+    ItemHeight = 0
+    TabOrder = 2
+    Visible = False
+  end
+  object ListBox3: TListBox
+    Left = 216
+    Height = 33
+    Top = 216
+    Width = 185
+    ItemHeight = 0
+    TabOrder = 3
+    Visible = False
+  end
+  object GroupBox3: TGroupBox
+    Left = 8
+    Height = 297
+    Top = 144
+    Width = 145
+    Caption = 'Results'
+    ClientHeight = 279
+    ClientWidth = 141
+    TabOrder = 4
+    object Label3: TLabel
+      Left = 16
+      Height = 13
+      Top = 8
+      Width = 82
+      Caption = 'Searched articles'
+    end
+    object lbSearchResult: TListBox
+      Left = 16
+      Height = 241
+      Top = 24
+      Width = 113
+      ItemHeight = 0
+      TabOrder = 0
+    end
+  end
+  object mmMain: TMainMenu
+    Left = 312
+    Top = 80
+    object File1: TMenuItem
+      Caption = '&File'
+      object View1: TMenuItem
+        Caption = '&View text file'
+        OnClick = View1Click
+      end
+      object Exportintextfile1: TMenuItem
+        Caption = 'E&xport in text file'
+        OnClick = Exportintextfile1Click
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Exit1: TMenuItem
+        Caption = 'E&xit'
+        ShortCut = 27
+        OnClick = Exit1Click
+      end
+    end
+    object Options1: TMenuItem
+      Caption = '&Options'
+      object Longsentences1: TMenuItem
+        Caption = '&Long sentences'
+        Checked = True
+        ShortCut = 16460
+        OnClick = Longsentences1Click
+      end
+      object Search1: TMenuItem
+        Caption = '&Search'
+        object Year1: TMenuItem
+          Caption = '&Year...'
+          OnClick = Year1Click
+        end
+        object Date1: TMenuItem
+          Caption = '&Date...'
+          OnClick = Date1Click
+        end
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object Language1: TMenuItem
+        Caption = '&Language'
+        object English1: TMenuItem
+          Caption = '&English'
+          Checked = True
+          OnClick = English1Click
+        end
+        object Romanian1: TMenuItem
+          Caption = '&Romanian'
+          OnClick = Romanian1Click
+        end
+        object Italy1: TMenuItem
+          Caption = '&Italy'
+          OnClick = Italy1Click
+        end
+        object French1: TMenuItem
+          Caption = '&French'
+          OnClick = French1Click
+        end
+      end
+    end
+    object Help1: TMenuItem
+      Caption = '&Help'
+      object About1: TMenuItem
+        Caption = '&About...'
+        ShortCut = 112
+        OnClick = About1Click
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'Text files|*.txt|All files|*.*'
+    Left = 392
+    Top = 80
+  end
+  object SaveDialog1: TSaveDialog
+    Filter = 'Text files|*.txt|All files|*.*'
+    Options = [ofOverwritePrompt, ofHideReadOnly]
+    Left = 464
+    Top = 80
+  end
+end
